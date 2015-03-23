@@ -7,7 +7,7 @@
             super("enemyCar");
             this.name = "enemyCar";
             this.soundString = "thunder";
-            this._dx = 5;
+            this._dx = 7;
             this._reset();
 
         }

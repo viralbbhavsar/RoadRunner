@@ -7,7 +7,7 @@
             super("fuel");
             this.name = "fuel";
             this.soundString = "yay";
-            this._dx = 5;
+            this._dx = 4;
             this._reset();
 
         }

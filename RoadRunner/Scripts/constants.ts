@@ -9,8 +9,8 @@
     export var SCREEN_CENTER_HEIGHT: number = SCREEN_HEIGHT * 0.5;
     export var SPACE_RESET_WIDTH: number = 480;
 
-    export var PLAYER_LIVES: number = 5;
-    export var ENEMYCAR_NUM: number = 3;
+    export var PLAYER_LIVES: number = 3;
+    export var ENEMYCAR_NUM: number = 4;
     export var FUEL_NUM: number = 2;
 
     // States Constants
