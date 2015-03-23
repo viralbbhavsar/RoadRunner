@@ -10,6 +10,7 @@
 /// <reference path="objects/runningpath.ts" />
 /// <reference path="objects/hero.ts" />
 /// <reference path="objects/enemycar.ts" />
+/// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/fuel.ts" />
 /// <reference path="objects/button.ts" />
 /// <reference path="objects/label.ts" />
@@ -30,6 +31,7 @@ var runningPath: objects.Runningpath;
 var hero: objects.Hero;
 var enemyCar: objects.EnemyCar[] = [];
 var fuel: objects.Fuel;
+var scoreboard: objects.ScoreBoard;
 
 // asset manifest - array of asset objects
 var manifest = [
@@ -90,6 +92,14 @@ function checkCollision(collider: objects.GameObject) {
             createjs.Sound.play(collider.soundString);
             collider.isColliding = true;
 
+            switch (collider.name) {
+                case "fuel":
+                    scoreboard.score += 100;
+                    break;
+                case "enemyCar":
+                    scoreboard.lives--;
+                    break;
+            }
         }
     } else {
         collider.isColliding = false;
@@ -110,6 +120,15 @@ function gameLoop() {
 
     fuel.update();
     checkCollision(fuel);
+
+    scoreboard.update();
+
+    if (scoreboard.lives < 1) {
+        createjs.Sound.stop();
+        game.removeAllChildren();
+        //stage.removeChild(game);
+        stage.removeAllChildren();
+    }
 
     stage.update(); // Refreshes our stage
 
@@ -139,6 +158,9 @@ function main() {
 
     fuel = new objects.Fuel();
     game.addChild(fuel)
+
+    //Add Scoreboard
+    scoreboard = new objects.ScoreBoard();
 
     stage.addChild(game);
 
