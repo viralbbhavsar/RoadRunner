@@ -8,6 +8,7 @@
 
             this.x = constants.SCREEN_WIDTH - 30;
 
+            createjs.Sound.play("engine", { loop: -1 });
 
         }
 

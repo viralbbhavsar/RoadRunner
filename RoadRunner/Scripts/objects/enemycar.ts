@@ -1,12 +1,12 @@
 ﻿module objects {
 
-    export class Fuel extends objects.GameObject {
+    export class EnemyCar extends objects.GameObject {
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++
         constructor() {
-            super("fuel");
-            this.name = "fuel";
-            this.soundString = "yay";
+            super("enemyCar");
+            this.name = "enemyCar";
+            this.soundString = "thunder";
             this._dx = 5;
             this._reset();
 
@@ -33,4 +33,4 @@
         }
     }
 
-}       
+}     
